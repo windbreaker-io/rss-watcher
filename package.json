@@ -4,6 +4,7 @@
   "description": "Watches package repo RSS feeds (e.g. PyPi and Maven) and pushes incoming changes to a RabbitMQ event queue",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "ava"
   },
   "repository": {
@@ -29,6 +30,9 @@
   "dependencies": {
     "amqplib": "^0.5.1",
     "bluebird": "^3.5.0",
+    "feedparser": "^2.2.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "windbreaker-service-util": "github:windbreaker-io/windbreaker-service-util"
   }
 }
