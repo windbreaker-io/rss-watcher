@@ -1,0 +1,33 @@
+{
+  "name": "rss-watcher",
+  "version": "1.0.0",
+  "description": "Watches package repo RSS feeds (e.g. PyPi and Maven) and pushes incoming changes to a RabbitMQ event queue",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windbreaker-io/rss-watcher.git"
+  },
+  "contributors": [
+    {
+      "name": "Mabry Cervin",
+      "email": "mabry.cervin@gmail.com",
+      "url": "https://github.com/epitrochoid"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windbreaker-io/rss-watcher/issues"
+  },
+  "homepage": "https://github.com/windbreaker-io/rss-watcher#readme",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "eslint": "^4.0.0"
+  },
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "bluebird": "^3.5.0"
+  }
+}
