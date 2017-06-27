@@ -6,64 +6,25 @@ const RxNode = require('rx-node')
 // Event loop will run 3 times for testing
 const interval = Rx.Observable.interval(5000).timeInterval().take(1)
 
-const getFeed = function(iteration) {
-    console.log(iteration)
-    let req = request('https://pypi.python.org/pypi?%3aaction=rss')
-    let feedparser = new FeedParser()
-    let items = []
-    req.on('response', function(res) {
-        let stream = this
-
-        if (res.statusCode != 200) {
-            //stream.emit('error', new Error('bad status code'))
-            console.log(res.statuscode)
-        } else {
-            stream.pipe(feedparser)
-        }
-    })
-
-
-    feedparser.on('readable', function() {
-        let stream = this
-        let item
-
-        while ((item = stream.read())) {
-            items.push(item)
-        }
-    })
-
-    return new Promise((res, reject) => {
-        feedparser.on('error', reject)
-        req.on('error', reject)
-        feedparser.on('end', () => {
-            resolve(items)
-        })
-    })
-}
-
-const req = request('https://pypi.python.org/pypi?%3aaction=rss')
-const feedparser = new FeedParser()
-RxNode.fromStream(req, 'end', 'response')
-  .flatMap(x => RxNode.fromReadableStream(x.pipe(feedparser)))
-  .buffer(Rx.Observable.fromEvent(req, 'end'))
-  .subscribe(x => console.log(x))
-
-const eventLoop = Rx.Observer.create(
-    function(val) {
-        console.log(val)
-    },
-    function(error) {
-        console.log(error)
-    },
-    function() {
-        console.log('Completed')
-    }
-)
-
 const produceDiff = function(acc, cur) {
-    console.log(acc)
-    console.log(cur)
+    console.log('!!!!!!!!!!!!!!!!!!!')
+    console.log(acc.length)
+    console.log(cur.length)
+    console.log('+++++++++++++++++++')
     return cur
 }
 
-//interval.map(getFeed).subscribe(eventLoop)
+// Set up the node streams
+const req = request('https://pypi.python.org/pypi?%3aaction=rss')
+const feedparser = new FeedParser()
+
+// Convert the request stream into an Rx observable
+RxNode.fromStream(req, 'end', 'response')
+  // Map the events from the request Observable to an observable made from the FeedParser
+  .flatMap(x => RxNode.fromReadableStream(x.pipe(feedparser)))
+  // Collect events from parsing the RSS feed into a single array
+  .buffer(Rx.Observable.fromEvent(req, 'end'))
+  // Use scan to compare the most recent feed to the previous
+  .scan(produceDiff, [])
+  // NOP subscribe for now to complete the chain
+  .subscribe(x => x)
