@@ -3,28 +3,48 @@ const request = require('request')
 const Rx = require('rx') 
 const RxNode = require('rx-node')
 
+const rssDiff = require('./rss-diff')
+
 // Event loop will run 3 times for testing
-const interval = Rx.Observable.interval(5000).timeInterval().take(1)
+const interval = Rx.Observable.interval(20000).timeInterval().take(300)
 
 const produceDiff = function(acc, cur) {
-    console.log('!!!!!!!!!!!!!!!!!!!')
-    console.log(acc.length)
-    console.log(cur.length)
-    console.log('+++++++++++++++++++')
+    // Here for debugging purposes
+    if (!(JSON.stringify(cur) === JSON.stringify(acc))) {
+        console.log('!!!!!!!!!!!!!!!!!!!')
+        for (let i = 0; i < acc.length; i++) {
+            console.log(acc[i]['title'])
+        }
+        console.log('(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)')
+        for (let i = 0; i < cur.length; i++) {
+            console.log(cur[i]['title'])
+        }
+        console.log('+++++++++++++++++++')
+    }
+    console.log(rssDiff.rssDiff(acc, cur, 'title'))
     return cur
 }
 
-// Set up the node streams
-const req = request('https://pypi.python.org/pypi?%3aaction=rss')
-const feedparser = new FeedParser()
+const url = 'https://pypi.python.org/pypi?%3aaction=rss'
 
-// Convert the request stream into an Rx observable
-RxNode.fromStream(req, 'end', 'response')
-  // Map the events from the request Observable to an observable made from the FeedParser
-  .flatMap(x => RxNode.fromReadableStream(x.pipe(feedparser)))
-  // Collect events from parsing the RSS feed into a single array
-  .buffer(Rx.Observable.fromEvent(req, 'end'))
-  // Use scan to compare the most recent feed to the previous
+// Take requests and convert to observables
+const requestObservable = function(req) {
+    return RxNode.fromStream(req, 'end', 'response')
+}
+
+// Take request observables, parse them as RSS, and return results in an array
+const feedObservable = function(res) {
+    return RxNode.fromReadableStream(res.pipe(new FeedParser)).toArray()
+}
+
+// Generate a new request for each interval
+interval.map(x => request(url))
+  .flatMap(requestObservable)
+  .flatMap(feedObservable)
+  // Pass the previous array and current array to produceDiff
   .scan(produceDiff, [])
-  // NOP subscribe for now to complete the chain
+  // Placeholder
   .subscribe(x => x)
+
+console.log(rssDiff.rssDiff([{'a': 1}, {'a': 2}, {'a': 3}], [{'a': 2}, {'a': 3}, {'a': 4}], 'a'))
+
