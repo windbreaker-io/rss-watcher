@@ -45,6 +45,3 @@ interval.map(x => request(url))
   .scan(produceDiff, [])
   // Placeholder
   .subscribe(x => x)
-
-console.log(rssDiff.rssDiff([{'a': 1}, {'a': 2}, {'a': 3}], [{'a': 2}, {'a': 3}, {'a': 4}], 'a'))
-
