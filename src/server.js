@@ -1,14 +1,16 @@
 require('require-self-ref')
 
+const config = require('~/src/config')
+
+config.load()
+
+const logger = require('~/src/logging').logger(module)
 const FeedParser = require('feedparser')
 const request = require('request')
 const Rx = require('rx') 
 const RxNode = require('rx-node')
 
 const rssDiff = require('~/src/rss-diff')
-const config = require('~/src/config')
-
-config.load()
 
 const PYPI_RSS_URL = config.getPypiRssUrl()
 const POLLING_INTERVAL = config.getPollingInterval()
@@ -19,17 +21,17 @@ const interval = Rx.Observable.interval(POLLING_INTERVAL).timeInterval().take(30
 const produceDiff = function(acc, cur) {
     // Here for debugging purposes
     if (!(JSON.stringify(cur) === JSON.stringify(acc))) {
-        console.log('!!!!!!!!!!!!!!!!!!!')
+        logger.debug('!!!!!!!!!!!!!!!!!!!')
         for (let i = 0; i < acc.length; i++) {
-            console.log(acc[i]['title'])
+            logger.debug(acc[i]['title'])
         }
-        console.log('(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)')
+        logger.debug('(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)')
         for (let i = 0; i < cur.length; i++) {
-            console.log(cur[i]['title'])
+            logger.debug(cur[i]['title'])
         }
-        console.log('+++++++++++++++++++')
+        logger.debug('+++++++++++++++++++')
     }
-    console.log(rssDiff.rssDiff(acc, cur, 'title'))
+    logger.debug(rssDiff(acc, cur, 'title'))
     return cur
 }
 
