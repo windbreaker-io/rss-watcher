@@ -1,12 +1,20 @@
+require('require-self-ref')
+
 const FeedParser = require('feedparser')
 const request = require('request')
 const Rx = require('rx') 
 const RxNode = require('rx-node')
 
-const rssDiff = require('./rss-diff')
+const rssDiff = require('~/src/rss-diff')
+const config = require('~/src/config')
+
+config.load()
+
+const PYPI_RSS_URL = config.getPypiRssUrl()
+const POLLING_INTERVAL = config.getPollingInterval()
 
 // Event loop will run 3 times for testing
-const interval = Rx.Observable.interval(20000).timeInterval().take(300)
+const interval = Rx.Observable.interval(POLLING_INTERVAL).timeInterval().take(300)
 
 const produceDiff = function(acc, cur) {
     // Here for debugging purposes
@@ -25,8 +33,6 @@ const produceDiff = function(acc, cur) {
     return cur
 }
 
-const url = 'https://pypi.python.org/pypi?%3aaction=rss'
-
 // Take requests and convert to observables
 const requestObservable = function(req) {
     return RxNode.fromStream(req, 'end', 'response')
@@ -38,7 +44,7 @@ const feedObservable = function(res) {
 }
 
 // Generate a new request for each interval
-interval.map(x => request(url))
+interval.map(() => request(PYPI_RSS_URL))
   .flatMap(requestObservable)
   .flatMap(feedObservable)
   // Pass the previous array and current array to produceDiff
