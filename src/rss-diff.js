@@ -9,12 +9,12 @@ module.exports = function rssDiff(itemBefore, itemAfter, field) {
     let beforeMap = {}
     let out = []
 
-    // Create a map of field to index for first array
+    // Create a map of field for first array
     for (let i = 0; i < itemBefore.length; i++) {
         beforeMap[itemBefore[i][field]] = true
     }
 
-    // If element in second array does not exist in previous map, store its index
+    // If element in second array does not exist in previous map, add it to out
     for (let i = 0; i < itemAfter.length; i++) {
         if (!(itemAfter[i][field] in beforeMap)) {
            out.push(itemAfter[i])

@@ -15,7 +15,7 @@ const rssDiff = require('~/src/rss-diff')
 const PYPI_RSS_URL = config.getPypiRssUrl()
 const POLLING_INTERVAL = config.getPollingInterval()
 
-// Event loop will run 3 times for testing
+// Set up an interval to poll the feed
 const interval = Rx.Observable.interval(POLLING_INTERVAL).timeInterval().take(300)
 
 const produceDiff = function(acc, cur) {
