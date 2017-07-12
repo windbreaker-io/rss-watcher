@@ -1,30 +1,55 @@
+require('require-self-ref')
+
+const config = require('~/src/config')
+
+config.load()
+
+const logger = require('~/src/logging').logger(module)
 const FeedParser = require('feedparser')
 const request = require('request')
 const Rx = require('rx') 
 const RxNode = require('rx-node')
 
+const rssDiff = require('~/src/rss-diff')
+
+const PYPI_RSS_URL = config.getPypiRssUrl()
+const POLLING_INTERVAL = config.getPollingInterval()
+
 // Event loop will run 3 times for testing
-const interval = Rx.Observable.interval(5000).timeInterval().take(1)
+const interval = Rx.Observable.interval(POLLING_INTERVAL).timeInterval().take(300)
 
 const produceDiff = function(acc, cur) {
-    console.log('!!!!!!!!!!!!!!!!!!!')
-    console.log(acc.length)
-    console.log(cur.length)
-    console.log('+++++++++++++++++++')
+    // Here for debugging purposes
+    if (!(JSON.stringify(cur) === JSON.stringify(acc))) {
+        logger.debug('!!!!!!!!!!!!!!!!!!!')
+        for (let i = 0; i < acc.length; i++) {
+            logger.debug(acc[i]['title'])
+        }
+        logger.debug('(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)(-)')
+        for (let i = 0; i < cur.length; i++) {
+            logger.debug(cur[i]['title'])
+        }
+        logger.debug('+++++++++++++++++++')
+    }
+    logger.debug(rssDiff(acc, cur, 'title'))
     return cur
 }
 
-// Set up the node streams
-const req = request('https://pypi.python.org/pypi?%3aaction=rss')
-const feedparser = new FeedParser()
+// Take requests and convert to observables
+const requestObservable = function(req) {
+    return RxNode.fromStream(req, 'end', 'response')
+}
 
-// Convert the request stream into an Rx observable
-RxNode.fromStream(req, 'end', 'response')
-  // Map the events from the request Observable to an observable made from the FeedParser
-  .flatMap(x => RxNode.fromReadableStream(x.pipe(feedparser)))
-  // Collect events from parsing the RSS feed into a single array
-  .buffer(Rx.Observable.fromEvent(req, 'end'))
-  // Use scan to compare the most recent feed to the previous
+// Take request observables, parse them as RSS, and return results in an array
+const feedObservable = function(res) {
+    return RxNode.fromReadableStream(res.pipe(new FeedParser)).toArray()
+}
+
+// Generate a new request for each interval
+interval.map(() => request(PYPI_RSS_URL))
+  .flatMap(requestObservable)
+  .flatMap(feedObservable)
+  // Pass the previous array and current array to produceDiff
   .scan(produceDiff, [])
-  // NOP subscribe for now to complete the chain
+  // Placeholder
   .subscribe(x => x)
