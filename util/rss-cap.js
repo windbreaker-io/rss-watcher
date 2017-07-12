@@ -5,6 +5,7 @@ const request = require('request')
 const fs = require('fs')
 const Rx = require('rx') 
 const RxNode = require('rx-node')
+const util = require('util')
 
 const rssDiff = require('~/src/rss-diff')
 const config = require('~/src/config')
@@ -15,14 +16,16 @@ const PYPI_RSS_URL = config.getPypiRssUrl()
 
 // Observer that takes values and writes them to a file
 const writeObserver = Rx.Observer.create(
-    x => {
-        const json = JSON.stringify(x, null, '  ')
+    async (next) => {
+        const json = JSON.stringify(next, null, '  ')
         const datestring = (new Date().toISOString()) + '.json'
-        fs.writeFile(datestring, json, err => {
-            console.log(err)
-            return
-        })
-        console.log('Wrote rss feed out to: ' + datestring)
+        const writeFile = util.promisify(fs.writeFile)
+        try {
+            await writeFile(datestring, json)
+            console.log('Wrote rss feed out to: ' + datestring)
+        } catch(error) {
+            console.error(error)
+        }
     },
     err => {
         console.log(err)
