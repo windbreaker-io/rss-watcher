@@ -1,5 +1,4 @@
 require('require-self-ref')
-const fs = require('fs')
 const test = require('ava')
 
 const rssDiff = require('~/src/rss-diff')
