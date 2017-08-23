@@ -4,7 +4,7 @@
   "description": "Watches package repo RSS feeds (e.g. PyPi and Maven) and pushes incoming changes to a RabbitMQ event queue",
   "main": "src/server.js",
   "scripts": {
-    "lint": "eslint src util",
+    "lint": "eslint .",
     "start": "node src/server.js",
     "test": "ava"
   },
