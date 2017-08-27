@@ -45,6 +45,8 @@
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "require-self-ref": "^2.0.1",
+    "rx": "^4.1.0",
+    "rx-node": "^1.0.2",
     "windbreaker-service-util": "github:windbreaker-io/windbreaker-service-util"
   },
   "config": {
