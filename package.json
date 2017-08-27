@@ -9,8 +9,9 @@
     "docker:stop": "docker-compose down",
     "lint": "eslint .",
     "start": "node src/server.js",
-    "test": "ava test",
-    "test:docker:ci": "npm run test"
+    "test": "docker-compose run test; npm run docker:stop",
+    "test:docker:ci": "ava test",
+    "path": "which docker-compose"
   },
   "repository": {
     "type": "git",
