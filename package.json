@@ -4,9 +4,13 @@
   "description": "Watches package repo RSS feeds (e.g. PyPi and Maven) and pushes incoming changes to a RabbitMQ event queue",
   "main": "src/server.js",
   "scripts": {
+    "docker:build": "docker-compose build",
+    "docker:start": "docker-compose up rediscluster rabbitmq",
+    "docker:stop": "docker-compose down",
     "lint": "eslint .",
     "start": "node src/server.js",
-    "test": "ava"
+    "test": "docker-compose run test; npm run docker:stop",
+    "test:docker:ci": "ava test"
   },
   "repository": {
     "type": "git",
@@ -40,6 +44,7 @@
     "feedparser": "^2.2.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
+    "require-self-ref": "^2.0.1",
     "windbreaker-service-util": "github:windbreaker-io/windbreaker-service-util"
   },
   "config": {
