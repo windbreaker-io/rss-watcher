@@ -1,7 +1,6 @@
-language: node_js
-node_js:
-  - '8'
-script: npm run test
+services:
+  - docker
+script: docker-compose run test
 notifications:
   slack:
     secure:
