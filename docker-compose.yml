@@ -1,5 +1,13 @@
 version: '3'
 services:
+  rss-watcher:
+    build: .
+    command: 'npm start'
+    depends_on:
+      - rabbitmq
+    volumes:
+      - .:/usr/rss-watcher
+      - /usr/rss-watcher/node_modules
   test:
     build: .
     command: 'npm run test:docker:ci'
