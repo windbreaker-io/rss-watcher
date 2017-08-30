@@ -1,10 +1,9 @@
 language: node_js
-
 node_js:
   - '8'
-
 script: npm run test:ci
-
 notifications:
   slack:
-    secure: 
+    secure:
+    rooms:
+      secure: i/zARFdDOIxzAlh6zdSLlu89RIRqNkXf3r+uEl8tWENoRnqjfEeRN2IWhlq0S2l0+N0t5alqg/qRgLy4znHitWhceh4ppkCw3WXdADBXB4wE4Ks2+3r1FoovgX3q2VU67egHDTStL5855uSPBVfBPca6OgfIEOZDcKky7wdmAbEcd0C0F/Jsamx9mieJLnQNU22XFASZEwK00JtBRwjDHM4l7xCZsdwOUHZmVGZcacBzXsRKoEeC93VAbt9Q/FB2DvWtMObvvYTzQqhoBEoT9rjaY92EWYopPmIezz+azNjF5VqssOvdfSqaBRmSwKqygxb+HqrZXqCOxKDmCSUJtpK8W7LKn0vzwU9Me+cLTLmCGE2U9MTULRuFXKwo8txRELEjCcD17wpcyplVsBxdU05ku8/JRt3sLJzheLYkyPr+X0Yh+3JsK0qRaYpUikOJSUDfq5T8aayM5MWlZYH1dd4OGQXOSk5cgjjLneubzHp75daypeuv08NoAtfNakGKxmPKOVDSunOPhthYhWmYQ8STh2EjFU15gUnx2tU2hVZ3CEIDPnkry6Hj8dY290JiXLleZRzwa9+7g3bagG1L3M/GIXvtgXWrtzTXzNJObX8e+aCMhYjqCff0uujwn6TH1+awZ44yqm0tYQkA5T8PJYwfSUinC6oyYDzk6+PG4Es=
