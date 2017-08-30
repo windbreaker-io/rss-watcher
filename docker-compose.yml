@@ -10,7 +10,7 @@ services:
       - /usr/rss-watcher/node_modules
   test:
     build: .
-    command: 'npm run test:docker:ci'
+    command: 'npm run test:docker'
     depends_on:
       - rabbitmq
     volumes:
