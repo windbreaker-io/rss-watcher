@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "start": "node src/server.js",
     "test": "docker-compose run test; npm run docker:stop",
-    "test:docker:ci": "ava test"
+    "test:docker": "ava test --verbose"
   },
   "repository": {
     "type": "git",
