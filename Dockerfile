@@ -7,7 +7,7 @@ RUN mkdir -p $HOME
 WORKDIR $HOME
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh 
+    apk add --no-cache bash git openssh
 
 ADD package.json $HOME
-RUN npm install 
+RUN npm install --silent
