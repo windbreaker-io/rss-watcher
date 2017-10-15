@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91">
+ <channel>
+  <title>PyPI Recent Updates</title>
+  <link>https://pypi.python.org/pypi</link>
+  <description>Recent updates to the Python Package Index</description>
+  <language>en</language>
+
+  <item>
+    <title>pyverilog 1.1.0</title>
+    <link>http://pypi.python.org/pypi/pyverilog/1.1.0</link>
+    <description>Python-based Hardware Design Processing Toolkit for Verilog HDL: Parser, Dataflow Analyzer, Controlflow Analyzer and Code Generator</description>
+    <pubDate>01 Oct 2017 03:06:25 GMT</pubDate>
+   </item>
+  <item>
+    <title>rpi-featureSelection-python-tools 1.0.3</title>
+    <link>http://pypi.python.org/pypi/rpi-featureSelection-python-tools/1.0.3</link>
+    <description></description>
+    <pubDate>01 Oct 2017 03:06:04 GMT</pubDate>
+   </item>
+  <item>
+    <title>slots_metaclass 2017.10.2</title>
+    <link>http://pypi.python.org/pypi/slots_metaclass/2017.10.2</link>
+    <description>slots_metaclass</description>
+    <pubDate>01 Oct 2017 03:05:21 GMT</pubDate>
+   </item>
+  <item>
+    <title>borgbackup 1.1.0rc4</title>
+    <link>http://pypi.python.org/pypi/borgbackup/1.1.0rc4</link>
+    <description>Deduplicated, encrypted, authenticated and compressed backups</description>
+    <pubDate>01 Oct 2017 02:56:06 GMT</pubDate>
+   </item>
+  <item>
+    <title>pressenter2exit 0.0.7</title>
+    <link>http://pypi.python.org/pypi/pressenter2exit/0.0.7</link>
+    <description>Facilitates exit of a Python CLI program in a controlled way</description>
+    <pubDate>01 Oct 2017 02:54:40 GMT</pubDate>
+   </item>
+  <item>
+    <title>TracHideVals 1.2.1</title>
+    <link>http://pypi.python.org/pypi/TracHideVals/1.2.1</link>
+    <description>Hide ticket option values from certain users.</description>
+    <pubDate>01 Oct 2017 02:48:41 GMT</pubDate>
+   </item>
+  <item>
+    <title>plib3.dbtools 0.9.13</title>
+    <link>http://pypi.python.org/pypi/plib3.dbtools/0.9.13</link>
+    <description>Python 3 database interface tools.</description>
+    <pubDate>01 Oct 2017 02:42:07 GMT</pubDate>
+   </item>
+  <item>
+    <title>mazenv 0.3.0</title>
+    <link>http://pypi.python.org/pypi/mazenv/0.3.0</link>
+    <description>Maze environments for Reinforcement Learning</description>
+    <pubDate>01 Oct 2017 02:27:53 GMT</pubDate>
+   </item>
+  <item>
+    <title>lattice 0.1.dev9</title>
+    <link>http://pypi.python.org/pypi/lattice/0.1.dev9</link>
+    <description>A cryptocurrency market data utility package</description>
+    <pubDate>01 Oct 2017 02:23:42 GMT</pubDate>
+   </item>
+  <item>
+    <title>docassemble.webapp 0.1.65</title>
+    <link>http://pypi.python.org/pypi/docassemble.webapp/0.1.65</link>
+    <description>The web application components of the docassemble system.</description>
+    <pubDate>01 Oct 2017 02:21:22 GMT</pubDate>
+   </item>
+  <item>
+    <title>docassemble.demo 0.1.65</title>
+    <link>http://pypi.python.org/pypi/docassemble.demo/0.1.65</link>
+    <description>A demonstration package for docassemble.</description>
+    <pubDate>01 Oct 2017 02:21:12 GMT</pubDate>
+   </item>
+  <item>
+    <title>docassemble.base 0.1.65</title>
+    <link>http://pypi.python.org/pypi/docassemble.base/0.1.65</link>
+    <description>The base components of the docassemble system.</description>
+    <pubDate>01 Oct 2017 02:21:04 GMT</pubDate>
+   </item>
+  <item>
+    <title>docassemble 0.1.65</title>
+    <link>http://pypi.python.org/pypi/docassemble/0.1.65</link>
+    <description>A system for assembling documents from templates while automatically querying a user for necessary information.</description>
+    <pubDate>01 Oct 2017 02:20:57 GMT</pubDate>
+   </item>
+  <item>
+    <title>able 0.1.2</title>
+    <link>http://pypi.python.org/pypi/able/0.1.2</link>
+    <description></description>
+    <pubDate>01 Oct 2017 02:16:42 GMT</pubDate>
+   </item>
+  <item>
+    <title>anyrl 0.6.1</title>
+    <link>http://pypi.python.org/pypi/anyrl/0.6.1</link>
+    <description>A library for Reinforcement Learning</description>
+    <pubDate>01 Oct 2017 02:13:10 GMT</pubDate>
+   </item>
+  <item>
+    <title>plib.dbtools 0.9.13</title>
+    <link>http://pypi.python.org/pypi/plib.dbtools/0.9.13</link>
+    <description>Python database interface tools.</description>
+    <pubDate>01 Oct 2017 02:08:48 GMT</pubDate>
+   </item>
+  <item>
+    <title>robotica 0.1.35</title>
+    <link>http://pypi.python.org/pypi/robotica/0.1.35</link>
+    <description>Robotic maid to scare innocent children</description>
+    <pubDate>01 Oct 2017 01:58:56 GMT</pubDate>
+   </item>
+  <item>
+    <title>djangocms-listyle 0.1.6</title>
+    <link>http://pypi.python.org/pypi/djangocms-listyle/0.1.6</link>
+    <description>Adds a plugin to embed an ordered or unordered list to django CMS. Children are automatically wrapped in &lt;li&gt; tags.</description>
+    <pubDate>01 Oct 2017 01:50:28 GMT</pubDate>
+   </item>
+  <item>
+    <title>irs 6.7.3</title>
+    <link>http://pypi.python.org/pypi/irs/6.7.3</link>
+    <description>A music downloader that just gets metadata.</description>
+    <pubDate>01 Oct 2017 01:43:57 GMT</pubDate>
+   </item>
+  <item>
+    <title>fanfou 0.1.7</title>
+    <link>http://pypi.python.org/pypi/fanfou/0.1.7</link>
+    <description>OAuth of Fanfou</description>
+    <pubDate>01 Oct 2017 01:34:16 GMT</pubDate>
+   </item>
+  <item>
+    <title>ethereumd-proxy 0.3.0</title>
+    <link>http://pypi.python.org/pypi/ethereumd-proxy/0.3.0</link>
+    <description>Proxy client-server for Ethereum node using JSON-RPC interface.</description>
+    <pubDate>01 Oct 2017 01:26:57 GMT</pubDate>
+   </item>
+  <item>
+    <title>jupyter_share_session 0.1</title>
+    <link>http://pypi.python.org/pypi/jupyter_share_session/0.1</link>
+    <description>Split a notebook into multiple files.</description>
+    <pubDate>01 Oct 2017 01:21:21 GMT</pubDate>
+   </item>
+  <item>
+    <title>zirpu-utils 0.6.0</title>
+    <link>http://pypi.python.org/pypi/zirpu-utils/0.6.0</link>
+    <description>Zirpu's Misc. Utilities.</description>
+    <pubDate>01 Oct 2017 01:14:05 GMT</pubDate>
+   </item>
+  <item>
+    <title>moirai 0.0.6</title>
+    <link>http://pypi.python.org/pypi/moirai/0.0.6</link>
+    <description>Digital Control Manager Backend</description>
+    <pubDate>01 Oct 2017 01:11:20 GMT</pubDate>
+   </item>
+  <item>
+    <title>pullover 1.0.0rc3</title>
+    <link>http://pypi.python.org/pypi/pullover/1.0.0rc3</link>
+    <description>The simplest Pushover API wrapper for Python.</description>
+    <pubDate>01 Oct 2017 01:04:59 GMT</pubDate>
+   </item>
+  <item>
+    <title>Rhea 0.1.0</title>
+    <link>http://pypi.python.org/pypi/Rhea/0.1.0</link>
+    <description>Python wrapper for the bioinformatics tool mothur</description>
+    <pubDate>01 Oct 2017 01:03:06 GMT</pubDate>
+   </item>
+  <item>
+    <title>kipartman 0.2.0</title>
+    <link>http://pypi.python.org/pypi/kipartman/0.2.0</link>
+    <description>Kicad part manager</description>
+    <pubDate>01 Oct 2017 00:56:04 GMT</pubDate>
+   </item>
+  <item>
+    <title>dulwich 0.18.4</title>
+    <link>http://pypi.python.org/pypi/dulwich/0.18.4</link>
+    <description>Python Git Library</description>
+    <pubDate>01 Oct 2017 00:54:53 GMT</pubDate>
+   </item>
+  <item>
+    <title>reposmgr 0.0.3</title>
+    <link>http://pypi.python.org/pypi/reposmgr/0.0.3</link>
+    <description>(Very) Simple set of commands to manage a set of repository with one file (git only)</description>
+    <pubDate>01 Oct 2017 00:53:36 GMT</pubDate>
+   </item>
+  <item>
+    <title>okpy 1.13.5</title>
+    <link>http://pypi.python.org/pypi/okpy/1.13.5</link>
+    <description>ok.py supports programming projects by running tests, tracking progress, and assisting in debugging.</description>
+    <pubDate>01 Oct 2017 00:40:15 GMT</pubDate>
+   </item>
+  <item>
+    <title>sidewalkify 0.1.1</title>
+    <link>http://pypi.python.org/pypi/sidewalkify/0.1.1</link>
+    <description>`sidewalkify` is a Python library and command line application for drawing sidewalk lines from street centerline data.</description>
+    <pubDate>01 Oct 2017 00:38:48 GMT</pubDate>
+   </item>
+  <item>
+    <title>microcsound 2017.929</title>
+    <link>http://pypi.python.org/pypi/microcsound/2017.929</link>
+    <description>A tool for writing csound scores that can handle microtonality quite well!</description>
+    <pubDate>01 Oct 2017 00:24:52 GMT</pubDate>
+   </item>
+  <item>
+    <title>lictionary 0.1.2</title>
+    <link>http://pypi.python.org/pypi/lictionary/0.1.2</link>
+    <description></description>
+    <pubDate>01 Oct 2017 00:21:24 GMT</pubDate>
+   </item>
+  <item>
+    <title>django_restframework_nimbus 0.3.8</title>
+    <link>http://pypi.python.org/pypi/django_restframework_nimbus/0.3.8</link>
+    <description>djangorestframework extend</description>
+    <pubDate>01 Oct 2017 00:17:02 GMT</pubDate>
+   </item>
+  <item>
+    <title>django-classy-settings 2.1.1</title>
+    <link>http://pypi.python.org/pypi/django-classy-settings/2.1.1</link>
+    <description>Simple class-based settings for Django</description>
+    <pubDate>01 Oct 2017 00:17:00 GMT</pubDate>
+   </item>
+  <item>
+    <title>smash 0.0.3</title>
+    <link>http://pypi.python.org/pypi/smash/0.0.3</link>
+    <description>--- Smart Shell An integrated environment for reproducible research, development, testing, and production</description>
+    <pubDate>01 Oct 2017 00:11:47 GMT</pubDate>
+   </item>
+  <item>
+    <title>powertools 0.0.3</title>
+    <link>http://pypi.python.org/pypi/powertools/0.0.3</link>
+    <description></description>
+    <pubDate>01 Oct 2017 00:03:13 GMT</pubDate>
+   </item>
+  <item>
+    <title>compdescriptors 0.0.0</title>
+    <link>http://pypi.python.org/pypi/compdescriptors/0.0.0</link>
+    <description>Tools that make it easy to favor composition over inheritance</description>
+    <pubDate>01 Oct 2017 00:00:51 GMT</pubDate>
+   </item>
+  <item>
+    <title>libjournal 1.0</title>
+    <link>http://pypi.python.org/pypi/libjournal/1.0</link>
+    <description>A library that allows you to create, delete, and read journal entries</description>
+    <pubDate>30 Sep 2017 23:55:36 GMT</pubDate>
+   </item>
+  <item>
+    <title>cloud-volume 0.4.0</title>
+    <link>http://pypi.python.org/pypi/cloud-volume/0.4.0</link>
+    <description>Read and write neuroglancer Precomputed formats to cloud storage</description>
+    <pubDate>30 Sep 2017 23:53:26 GMT</pubDate>
+   </item>
+  </channel>
+</rss>
